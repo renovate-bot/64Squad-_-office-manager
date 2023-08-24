@@ -9,4 +9,4 @@ permissions:
 
 jobs:
   uneditable:
-    uses: 64Squad/work4/blob/main/.github/workflows/DevCyclePR.yml@main
+    uses: 64Squad/work4/.github/workflows/DevCyclePR.yml@main
