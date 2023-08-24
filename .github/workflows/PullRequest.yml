@@ -1,0 +1,12 @@
+name: pull requests
+
+on:
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  uneditable:
+    uses: 64Squad/work4/.github/workflows/DevCyclePR.yml@main
