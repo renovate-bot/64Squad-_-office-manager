@@ -1,0 +1,10 @@
+name: PHPStan
+
+on:
+  workflow_call:
+    paths:
+      - '**.php'
+      - 'phpstan.neon.dist'
+jobs:
+  PHPStan:
+    uses: 64Squad/work4/.github/workflows/PHPStan.yml@main

@@ -1,0 +1,31 @@
+name: Tests & Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+jobs:
+  steps_1:
+    name: Reformat Styling | Steps (1/5) 1️⃣
+    uses: 64Squad/work4/.github/workflows/LaravelStyling.yml@main
+
+  steps_2:
+    needs: steps_1
+    name: PHPStan | Steps (2/5) 2️⃣
+    uses: 64Squad/office-manager/.github/workflows/PHPStan.yml@main
+
+  steps_3:
+    needs: steps_2
+    name: Unit Tests by Pest | Steps (3/5) 3️⃣
+    uses: 64Squad/work4/.github/workflows/PestTest.yml@main
+
+  steps_4:
+    needs: steps_3
+    name: Unit Tests by PHPUnit | Steps (4/5) 4️⃣
+    uses: 64Squad/work4/.github/workflows/PHPTests.yml@main
+
+  steps_5:
+    needs: steps_4
+    name: Check Licenses | Steps (5/5) 5️⃣
+    uses: 64Squad/work4/.github/workflows/Licensed.yml@main
