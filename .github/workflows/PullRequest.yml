@@ -1,8 +1,9 @@
 name: pull requests
 
 on:
+  push:
   pull_request_target:
-    types: [opened]
+    types: [opened, synchronize]
 
 permissions:
   pull-requests: write
@@ -10,4 +11,3 @@ permissions:
 jobs:
   uneditable:
     uses: 64Squad/work4/.github/workflows/DevCyclePR.yml@main
-#Test Workflow

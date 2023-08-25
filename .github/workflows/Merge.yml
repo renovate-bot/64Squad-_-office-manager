@@ -1,0 +1,10 @@
+name: Auto Merge and Version Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  auto_merge:
+    uses: 64Squad/work4/.github/workflows/AutoMerge.yml@main

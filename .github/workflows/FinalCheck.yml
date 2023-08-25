@@ -1,0 +1,39 @@
+name: Gran Final Check 🧐 By BotFlow
+
+on:
+  pull_request:
+    branches:
+      - 'v.1.x'
+
+permissions:
+  pull-requests: write
+
+jobs:
+  PHPStan:
+    name: PHPStan 🐘
+    uses: 64Squad/work4/.github/workflows/PHPStan.yml@main
+
+  Styling:
+    needs: PHPStan
+    name: Laravel Styling 👻
+    uses: 64Squad/work4/.github/workflows/LaravelStyling.yml@main
+
+  Pest:
+    needs: Styling
+    name: Pest Tests 🐞
+    uses: 64Squad/work4/.github/workflows/PestTest.yml@main
+
+  PHPUnit:
+    needs: Pest
+    name: PHPUnit Tests 🐞
+    uses: 64Squad/work4/.github/workflows/PHPTests.yml@main
+
+  License:
+    needs: PHPUnit
+    name: License Check 📝
+    uses: 64Squad/work4/.github/workflows/Licensed.yml@main
+
+  Review:
+    needs: License
+    name: Review ✨ 📓
+    uses: 64Squad/work4/.github/workflows/CodeReviews.yml@main
