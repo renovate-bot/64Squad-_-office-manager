@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - develop
+
+permissions:
+    pull-requests: write
+
 jobs:
   steps_1:
     name: Reformat Styling | Steps (1/5) 1️⃣
@@ -34,3 +38,8 @@ jobs:
     needs: [steps_1, steps_2, steps_3, steps_4, steps_5]
     name: Review ✨ 📓
     uses: 64Squad/work4/.github/workflows/CodeReviews.yml@main
+
+  owner_check:
+    needs: reviews
+    name: Owner Check 🧐
+    uses: 64Squad/work4/.github/workflows/AutoApprove.yml@main
