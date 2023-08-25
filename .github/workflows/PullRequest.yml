@@ -1,9 +1,8 @@
 name: pull requests
 
 on:
+  push:
   pull_request_target:
-    branches:
-      - main
     types: [opened, synchronize]
 
 permissions:
