@@ -29,3 +29,8 @@ jobs:
     needs: steps_4
     name: Check Licenses | Steps (5/5) 5️⃣
     uses: 64Squad/work4/.github/workflows/Licensed.yml@main
+
+  reviews:
+    needs: [steps_1, steps_2, steps_3, steps_4, steps_5]
+    name: Review ✨ 📓
+    uses: 64Squad/work4/.github/workflows/CodeReviews.yml@main
